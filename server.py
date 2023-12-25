@@ -2,7 +2,7 @@
 Author: Suizhi HUANG && sunrisen.huang@gmail.com
 Date: 2023-11-29 15:41:10
 LastEditors: Suizhi HUANG && sunrisen.huang@gmail.com
-LastEditTime: 2023-12-04 09:32:57
+LastEditTime: 2023-12-25 09:46:00
 FilePath: /DistributedLock/server.py
 Description: 
 Copyright (c) 2023 by $Suizhi HUANG, All Rights Reserved. 
@@ -10,6 +10,10 @@ Copyright (c) 2023 by $Suizhi HUANG, All Rights Reserved.
 import socket
 import threading
 import json
+
+HOST = '127.0.0.1'
+LEADER_PORT = 65432
+FOLLOWER_PORTS = [65433, 65434]  # Add more ports for additional followers
 
 def send_message(host, port, message):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
